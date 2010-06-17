@@ -1,6 +1,6 @@
 
 # pdf.js - create basic pdf files in the browser or node.js, simple as cake
-<img src = "http://imgur.com/ARmuX.jpg" border = "0">
+<img src = "http://i.imgur.com/CIAll.jpg" border = "0">
 ### online demo @ <a href = "http://maraksquires.com/pdf.js/" target = "_blank">http://maraksquires.com/pdf.js/</a>
 ## USAGE
 ### browser - 
