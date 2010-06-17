@@ -5,7 +5,7 @@
 ## USAGE
 ### browser - 
   
-      <script src = "pdf.js" type = "text/javascript"></script>
+      <script src = "./lib/pdf.js" type = "text/javascript"></script>
       <script>
 
         /* create the PDF document */
