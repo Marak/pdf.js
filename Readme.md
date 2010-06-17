@@ -1,5 +1,5 @@
 # pdf.js - generate simple pdfs server-side with ease
-<img src = "http://imgur.com/ARmuX.jpg" border = "0">
+<img src = "http://imgur.com/CIAll.jpg" border = "0">
 ### online demo @ <a href = "http://maraksquires.com/pdf.js/">http://maraksquires.com/pdf.js/</a>
 ## USAGE
 ### browser - 
