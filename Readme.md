@@ -1,4 +1,4 @@
-# pdf.js - generate simple pdfs server-side with ease
+# pdf.js - create basic pdf files in the browser or node.js, simple as cake
 <img src = "http://imgur.com/ARmuX.jpg" border = "0">
 ### online demo @ <a href = "http://maraksquires.com/pdf.js/">http://maraksquires.com/pdf.js/</a>
 ## USAGE
@@ -6,10 +6,12 @@
   
       <script src = "pdf.js" type = "text/javascript"></script>
       <script>
+       
        /* create the PDF document */
 
          var doc = new pdf();
          doc.text(20, 20, 'Hello world!');
+         
          /* Optional - set properties on the document */
          doc.setProperties({
          	title: 'A sample document created by pdf.js',
@@ -21,6 +23,7 @@
       
       /* Add Pages */
          doc.addPage();
+      
       /* Change Font Sizes */
          doc.setFontSize(22);
          doc.text(20, 20, 'This is a title');
@@ -65,5 +68,5 @@
      });
      
 ## Authors
-#### Marak Squires
+#### Marak Squires and Matthew Bergman
 Heavily inspired by James Hall's jsPDF
