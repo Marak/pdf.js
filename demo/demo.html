@@ -1,7 +1,7 @@
 
 <html>
 <head>
-	<title>pdf.js</title>
+	<title>pdf.js - create basic pdf files in the browser and node.js</title>
 	<style type="text/css">
 		* { padding: 0; margin: 0; }
 		body {
@@ -37,8 +37,7 @@
         #theFrame{ display:none;}
 	</style>
 	<script type="text/javascript" src="../lib/pdf.js"></script>
-	<script type="text/javascript" src="../lib/base64.js"></script>
-	<script type="text/javascript" src="../lib/sprintf.js"></script>
+  <!-- jquery not required, just use this this demo page -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 
 
@@ -62,7 +61,9 @@
 <h1>pdf.js - create basic pdf files in the browser and node.js</h1>
 
 
-<h2>demo</h2>
+<h3>demo
+this uses <a href = "http://en.wikipedia.org/wiki/Data_URI_scheme" target = "_blank">dataURIs</a> and they kinda suck. the <a href = "http://github.com/marak/pdf.js">
+node.js</a> version is better.</h3><br/>
 <form>
 <input type = "button" id = "run" name = "run" value = "click here to create example pdf" /> 
 <span id = "pdfLink"></span>
@@ -72,13 +73,11 @@
   /* create the PDF document */
   
     var doc = new pdf();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.text(20, 40, 'It allows for meta-data.');
-    doc.text(20, 50, 'sThis Page has a title, subject, author, keywords and a creator.');
-    doc.text(20, 60, 'sup mang');
-
-    /* Optional - set properties on the document */
+    doc.text(20, 20, 'hello, I am PDF.');
+    doc.text(20, 30, 'i was created in the browser using javascript.');
+    doc.text(20, 40, 'i can also be created from node.js');
+  
+    /* optional - set properties on the document */
     doc.setProperties({
     	title: 'A sample document created by pdf.js',
     	subject: 'PDFs are kinda cool, i guess',		
@@ -93,7 +92,9 @@
 
     doc.setFontSize(16);
     doc.text(20, 30, 'This is some normal sized text underneath.');
-    var pdfAsDataURI = doc.output('datauri');
+    
+    var fileName = "testFile"+new Date().getSeconds()+".pdf";
+    var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});
 
   /* inject the pdf into the browser */
   
@@ -110,15 +111,15 @@
     // document.location = pdfAsDataURI;
 
     // create a link
-    // this seems to always work.
-    $('#pdfLink').html('<a href = "'+pdfAsDataURI+'">test.pdf</a> <span class = "helper">right click and save file as pdf</span');
+    // this seems to always work, except clicking the link destroys my FF instantly 
+    $('#pdfLink').html('<a href = "'+pdfAsDataURI+'">'+fileName+'</a> <span class = "helper">right click and save file as pdf</span');
 
 </textarea>
 </form>
 <iframe id = "theFrame"></iframe>
 
-
-
-
+<a href = "http://github.com/marak/pdf.js/">
+<img alt="Fork me on GitHub" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" style="position: absolute; z-index: 10; top: 0pt; right: 0pt; border: 0pt none;">
+</a>
 </body>
 </html>
