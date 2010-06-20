@@ -89,4 +89,4 @@
     
 ## Authors
 #### Marak Squires and Matthew Bergman
-Heavily inspired by James Hall's jsPDF
+Heavily inspired by James Hall's jsPDF 
