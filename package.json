@@ -1,7 +1,7 @@
 {
     "name": "pdf",
     "description": "create basic pdf files in the browser or node.js, simple as cake",
-    "version": "0.1.0",
+    "version": "0.2.1",
     "author": "Marak Squires",
     "repository": {
         "type": "git",
