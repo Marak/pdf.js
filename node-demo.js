@@ -25,6 +25,11 @@ doc.text(20, 20, 'This is a title');
 doc.setFontSize(16);
 doc.text(20, 30, 'This is some normal sized text underneath.');
 
+doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');
+doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
+doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
+doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
+
 var fileName = "testFile"+new Date().getSeconds()+".pdf";
 
 fs.writeFile(fileName, doc.output(), function(err, data){
