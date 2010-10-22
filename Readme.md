@@ -36,6 +36,8 @@
           doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
           doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
 
+          doc.drawRect(140, 140, 10, 10, 'solid');
+
           var fileName = "testFile"+new Date().getSeconds()+".pdf";
           var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});
 
@@ -90,6 +92,8 @@
       doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
       doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
       doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
+
+      doc.drawRect(140, 140, 10, 10, 'solid');
 
       var fileName = "testFile"+new Date().getSeconds()+".pdf";
 
