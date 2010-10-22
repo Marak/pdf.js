@@ -17,11 +17,11 @@
 
           /* Optional - set properties on the document */
           doc.setProperties({
-          	title: 'A sample document created by pdf.js',
-          	subject: 'PDFs are kinda cool, i guess',		
-          	author: 'Marak Squires',
-          	keywords: 'pdf.js, javascript, Marak, Marak Squires',
-          	creator: 'pdf.js'
+            title: 'A sample document created by pdf.js',
+            subject: 'PDFs are kinda cool, i guess',    
+            author: 'Marak Squires',
+            keywords: 'pdf.js, javascript, Marak, Marak Squires',
+            creator: 'pdf.js'
           });
           doc.addPage();
 
@@ -30,6 +30,11 @@
 
           doc.setFontSize(16);
           doc.text(20, 30, 'This is some normal sized text underneath.');
+
+          doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');
+          doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
+          doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
+          doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
 
           var fileName = "testFile"+new Date().getSeconds()+".pdf";
           var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});
@@ -67,11 +72,11 @@
 
       /* optional - set properties on the document */
       doc.setProperties({
-      	title: 'A sample document created by pdf.js',
-      	subject: 'PDFs are kinda cool, i guess',		
-      	author: 'Marak Squires',
-      	keywords: 'pdf.js, javascript, Marak, Marak Squires',
-      	creator: 'pdf.js'
+        title: 'A sample document created by pdf.js',
+        subject: 'PDFs are kinda cool, i guess',    
+        author: 'Marak Squires',
+        keywords: 'pdf.js, javascript, Marak, Marak Squires',
+        creator: 'pdf.js'
       });
       doc.addPage();
 
@@ -80,6 +85,11 @@
 
       doc.setFontSize(16);
       doc.text(20, 30, 'This is some normal sized text underneath.');
+
+      doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');
+      doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
+      doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
+      doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
 
       var fileName = "testFile"+new Date().getSeconds()+".pdf";
 

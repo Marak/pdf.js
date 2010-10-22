@@ -1,0 +1,156 @@
+%PDF-1.3
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/Contents 4 0 R>>
+endobj
+4 0 obj
+<</Length 211>>
+stream
+0.57 w
+BT /F1 16.00 Tf ET
+BT 56.69 785.20 Td (hello, I am PDF.) Tj ET
+BT 56.69 756.85 Td (i was created using node.js version: v0.3.0-pre) Tj ET
+BT 56.69 728.50 Td (i can also be created from the browser) Tj ET
+
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/Contents 6 0 R>>
+endobj
+6 0 obj
+<</Length 550>>
+stream
+0.57 w
+BT /F1 16.00 Tf ET
+BT /F1 22.00 Tf ET
+BT 56.69 785.20 Td (This is a title) Tj ET
+BT /F1 16.00 Tf ET
+BT 56.69 756.85 Td (This is some normal sized text underneath.) Tj ET
+
+/LEP BMC 
+q
+0 G
+1.00 w
+[4 2] 2 d
+0 J
+1 0 0 1 0 0 cm
+283.46 558.43 m
+283.46 501.73 l
+S
+Q
+EMC
+
+
+/LEP BMC 
+q
+0 G
+1.20 w
+[1 2] 1 d
+0 J
+1 0 0 1 0 0 cm
+283.46 558.43 m
+340.16 558.43 l
+S
+Q
+EMC
+
+
+/LEP BMC 
+q
+0 G
+1.40 w
+[4 2] 2 d
+0 J
+1 0 0 1 0 0 cm
+340.16 501.73 m
+283.46 501.73 l
+S
+Q
+EMC
+
+
+/LEP BMC 
+q
+0 G
+1.60 w
+[] 0 d
+0 J
+1 0 0 1 0 0 cm
+340.16 501.73 m
+340.16 558.43 l
+S
+Q
+EMC
+
+
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+/MediaBox [0 0 595.28 841.89]
+>>
+endobj
+7 0 obj
+<</Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+8 0 obj
+<<
+/Producer (pdf.js 20090504)
+/Title (A sample document created by pdf.js)
+/Subject (PDFs are kinda cool, i guess)
+/Author (Marak Squires)
+/Keywords (pdf.js, javascript, Marak, Marak Squires)
+/Creator (pdf.js)
+/CreationDate (D:20101022073857)
+>>
+endobj
+9 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000001024 00000 n 
+0000001213 00000 n 
+0000000009 00000 n 
+0000000087 00000 n 
+0000000347 00000 n 
+0000000425 00000 n 
+0000001117 00000 n 
+0000001317 00000 n 
+0000001579 00000 n 
+trailer
+<<
+/Size 10
+/Root 9 0 R
+/Info 8 0 R
+>>
+startxref
+1682
+%%EOF

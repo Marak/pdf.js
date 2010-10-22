@@ -1,29 +1,29 @@
 
 <html>
 <head>
-	<title>pdf.js - create basic pdf files in the browser and node.js</title>
-	<style type="text/css">
-		* { padding: 0; margin: 0; }
-		body {
-			padding: 30px;
-			font-family: Arial, Helvetica, sans-serif;
-		}
-		h1 {
-			margin-bottom: 1em;
-			border-bottom: 1px solid #ccc;
-		}
-		
-		h2 {
-			margin-bottom: 1em;
-			border-bottom: 1px solid #ccc;
-		}
-		
-		pre {
-			border: 1px dotted #ccc;
-			background: #f7f7f7;
-			padding: 10px;
-			margin-bottom: 1em;
-		}
+  <title>pdf.js - create basic pdf files in the browser and node.js</title>
+  <style type="text/css">
+    * { padding: 0; margin: 0; }
+    body {
+      padding: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+      margin-bottom: 1em;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    h2 {
+      margin-bottom: 1em;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    pre {
+      border: 1px dotted #ccc;
+      background: #f7f7f7;
+      padding: 10px;
+      margin-bottom: 1em;
+    }
         
         h1 {
             margin-bottom: 0.7em;
@@ -35,10 +35,10 @@
         .box{ width:100%; height:500px;}
         #theCode{}
         #theFrame{ display:none;}
-	</style>
-	<script type="text/javascript" src="./lib/pdf.js"></script>
+  </style>
+  <script type="text/javascript" src="./lib/pdf.js"></script>
   <!-- jquery not required, just use this this demo page -->
-	<script type="text/javascript" src="./vendor/jquery.js"></script>
+  <script type="text/javascript" src="./vendor/jquery.js"></script>
 
 
   <script type="text/javascript">
@@ -79,11 +79,11 @@ node.js</a> version is better.</h3><br/>
   
     /* optional - set properties on the document */
     doc.setProperties({
-    	title: 'A sample document created by pdf.js',
-    	subject: 'PDFs are kinda cool, i guess',		
-    	author: 'Marak Squires',
-    	keywords: 'pdf.js, javascript, Marak, Marak Squires',
-    	creator: 'pdf.js'
+      title: 'A sample document created by pdf.js',
+      subject: 'PDFs are kinda cool, i guess',    
+      author: 'Marak Squires',
+      keywords: 'pdf.js, javascript, Marak, Marak Squires',
+      creator: 'pdf.js'
     });
     doc.addPage();
 
@@ -92,6 +92,12 @@ node.js</a> version is better.</h3><br/>
 
     doc.setFontSize(16);
     doc.text(20, 30, 'This is some normal sized text underneath.');
+
+    doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');
+    doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
+    doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
+    doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
+
     
     var fileName = "testFile"+new Date().getSeconds()+".pdf";
     var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});

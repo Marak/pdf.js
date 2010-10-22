@@ -11,11 +11,11 @@ doc.text(20, 40, 'i can also be created from the browser');
 
 /* optional - set properties on the document */
 doc.setProperties({
-	title: 'A sample document created by pdf.js',
-	subject: 'PDFs are kinda cool, i guess',		
-	author: 'Marak Squires',
-	keywords: 'pdf.js, javascript, Marak, Marak Squires',
-	creator: 'pdf.js'
+  title: 'A sample document created by pdf.js',
+  subject: 'PDFs are kinda cool, i guess',    
+  author: 'Marak Squires',
+  keywords: 'pdf.js, javascript, Marak, Marak Squires',
+  creator: 'pdf.js'
 });
 doc.addPage();
 
