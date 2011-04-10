@@ -69,12 +69,13 @@ node.js</a> version is better.</h3><br/>
 <span id = "pdfLink"></span>
 <br/>
 <textarea id = "theCode" class = "box">
-
   /* create the PDF document */
   
     var doc = new pdf();
     doc.text(20, 20, 'hello, I am PDF.');
+    doc.setFont('Courier');
     doc.text(20, 30, 'i was created in the browser using javascript.');
+    doc.setFont('Times-Roman');
     doc.text(20, 40, 'i can also be created from node.js');
   
     /* optional - set properties on the document */
@@ -88,10 +89,15 @@ node.js</a> version is better.</h3><br/>
     doc.addPage();
 
     doc.setFontSize(22);
+    doc.setFont('Verdana');
     doc.text(20, 20, 'This is a title');
 
     doc.setFontSize(16);
-    doc.text(20, 30, 'This is some normal sized text underneath.');
+    doc.text(20, 30, 'You can also override page fonts with text method', 'Times-Roman');
+    doc.text(20, 40, 'Monaco -This is some normal sized text underneath.', 'Monaco');
+    doc.text(20, 50, 'Times-Roman - This is some normal sized text underneath.', 'Times-Roman');
+    doc.text(20, 60, 'Helvetica - This is some normal sized text underneath.', 'Helvetica');
+    doc.text(20, 70, 'Courier - This is some normal sized text.', 'Courier');
 
     doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');
     doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
@@ -120,6 +126,7 @@ node.js</a> version is better.</h3><br/>
     // create a link
     // this seems to always work, except clicking the link destroys my FF instantly 
     $('#pdfLink').html('<a href = "'+pdfAsDataURI+'">'+fileName+'</a> <span class = "helper">right click and save file as pdf</span');
+
 
 </textarea>
 </form>
