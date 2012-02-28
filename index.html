@@ -72,12 +72,6 @@ node.js</a> version is better.</h3><br/>
   /* create the PDF document */
   
     var doc = new pdf();
-    doc.text(20, 20, 'hello, I am PDF.');
-    doc.setFont('Courier');
-    doc.text(20, 30, 'i was created in the browser using javascript.');
-    doc.setFont('Times-Roman');
-    doc.text(20, 40, 'i can also be created from node.js');
-  
     /* optional - set properties on the document */
     doc.setProperties({
       title: 'A sample document created by pdf.js',
@@ -86,13 +80,14 @@ node.js</a> version is better.</h3><br/>
       keywords: 'pdf.js, javascript, Marak, Marak Squires',
       creator: 'pdf.js'
     });
-    doc.addPage();
 
-    doc.setFontSize(22);
+    doc.setFontSize(18);
     doc.setFont('Verdana');
-    doc.text(20, 20, 'This is a title');
-
-    doc.setFontSize(16);
+    doc.write(8, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam posuere lacus quis dolor. Fusce aliquam vestibulum ipsum. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam egestas wisi a erat. Etiam dictum tincidunt diam. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Integer lacinia. Curabitur bibendum justo non orci. Proin mattis lacinia justo.');
+    doc.write(8, 'Fusce consectetuer risus a nunc. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla pulvinar eleifend sem. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aliquam in lorem sit amet leo accumsan lacinia. Mauris metus. Integer malesuada. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Nullam dapibus fermentum ipsum. Sed convallis magna eu sem. Pellentesque pretium lectus id turpis. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nunc tincidunt ante vitae massa.');
+    doc.write(8, 'Duis condimentum augue id magna semper rutrum. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Aliquam erat volutpat. Phasellus et lorem id felis nonummy placerat. Integer malesuada. Morbi scelerisque luctus velit. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Etiam dictum tincidunt diam. Mauris dictum facilisis augue. Praesent id justo in neque elementum ultrices.');
+    doc.write(8, 'Aenean id metus id velit ullamcorper pulvinar. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Vivamus porttitor turpis ac leo. Suspendisse nisl. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Vivamus porttitor turpis ac leo. Integer malesuada. Fusce wisi. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Integer lacinia. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Fusce wisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Integer malesuada. Nulla pulvinar eleifend sem.');
+    doc.addPage();
     doc.text(20, 30, 'You can also override page fonts with text method', 'Times-Roman');
     doc.text(20, 40, 'Monaco -This is some normal sized text underneath.', 'Monaco');
     doc.text(20, 50, 'Times-Roman - This is some normal sized text underneath.', 'Times-Roman');
