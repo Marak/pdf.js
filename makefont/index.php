@@ -1,6 +1,7 @@
 <?php
 require_once 'makefont.php';
-$font = 'COMIC';
+$font = 'ubuntu';
 $enc = 'cp1250';
-makefont($font.'.ttf', $enc, false);
+$embed = true;
+makefont($font.'.ttf', $enc, $embed);
 echo "<br>".file_get_contents($font.".js");

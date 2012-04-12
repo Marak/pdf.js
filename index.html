@@ -1,74 +1,95 @@
 
 <html>
 <head>
-  <title>pdf.js - create basic pdf files in the browser and node.js</title>
-  <style type="text/css">
-    * { padding: 0; margin: 0; }
-    body {
-      padding: 30px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    h1 {
-      margin-bottom: 1em;
-      border-bottom: 1px solid #ccc;
-    }
-    
-    h2 {
-      margin-bottom: 1em;
-      border-bottom: 1px solid #ccc;
-    }
-    
-    pre {
-      border: 1px dotted #ccc;
-      background: #f7f7f7;
-      padding: 10px;
-      margin-bottom: 1em;
-    }
-        
-        h1 {
-            margin-bottom: 0.7em;
-        }
-        
-        h2 {
-            margin-top: 1em;
-        }
-        .box{ width:100%; height:500px;}
-        #theCode{}
-        #theFrame{ display:none;}
-  </style>
-  <script type="text/javascript" src="./lib/pdf.js"></script>
-  <!-- jquery not required, just use this this demo page -->
-  <script type="text/javascript" src="./vendor/jquery.js"></script>
+<title>pdf.js - create basic pdf files in the browser and
+	node.js</title>
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	padding: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	margin-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+}
+
+h2 {
+	margin-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+}
+
+pre {
+	border: 1px dotted #ccc;
+	background: #f7f7f7;
+	padding: 10px;
+	margin-bottom: 1em;
+}
+
+h1 {
+	margin-bottom: 0.7em;
+}
+
+h2 {
+	margin-top: 1em;
+}
+
+.box {
+	width: 100%;
+	height: 500px;
+}
+
+#theCode {
+	
+}
+
+#theFrame {
+	display: none;
+}
+</style>
+<script type="text/javascript" src="./lib/pdf.js"></script>
+<!-- font file in Windows-1250 encoding -->
+<script type="text/javascript" src="./cour.js"></script>
+<!-- jquery not required, just use this this demo page -->
+<script type="text/javascript" src="./vendor/jquery.js"></script>
 
 
-  <script type="text/javascript">
-  
-    $(document).ready(function(){
-      
-      $('#run').click(function(e){
-        // do an eval
-        eval($('#theCode').val());
-      });
-      
-    });
-  
-  </script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#run').click(function(e) {
+			$("body").append(
+			'<script type="text/javascript">'+
+		    $('#theCode').text()+
+		    '<\/script>'
+			);
+		});
+	});
+</script>
 
 </head>
 
 <body>
 
-<h1>pdf.js - create basic pdf files in the browser and node.js</h1>
+	<h1>pdf.js - create basic pdf files in the browser and node.js</h1>
 
 
-<h3>demo -
-this uses <a href = "http://en.wikipedia.org/wiki/Data_URI_scheme" target = "_blank">dataURIs</a> and they kinda suck. the <a href = "http://github.com/marak/pdf.js">
-node.js</a> version is better.</h3><br/>
-<form>
-<input type = "button" id = "run" name = "run" value = "click here to create example pdf" /> 
-<span id = "pdfLink"></span>
-<br/>
-<textarea id = "theCode" class = "box">
+	<h3>
+		demo - this uses <a
+			href="http://en.wikipedia.org/wiki/Data_URI_scheme" target="_blank">dataURIs</a>
+		and they kinda suck. the <a href="http://github.com/marak/pdf.js">
+			node.js</a> version is better.
+	</h3>
+	<br />
+	<form>
+		<input type="button" id="run" name="run"
+			value="click here to create example pdf" /> <span id="pdfLink"></span>
+		<br />
+		<textarea id="theCode" class="box">
   /* create the PDF document */
   
     var doc = new pdf();
@@ -76,59 +97,37 @@ node.js</a> version is better.</h3><br/>
     doc.setProperties({
       title: 'A sample document created by pdf.js',
       subject: 'PDFs are kinda cool, i guess',    
-      author: 'Marak Squires',
-      keywords: 'pdf.js, javascript, Marak, Marak Squires',
+      author: 'Anonymous',
+      keywords: 'pdf.js, javascript',
       creator: 'pdf.js'
     });
 
-    doc.setFontSize(18);
-    doc.setFont('Verdana');
-    doc.write(8, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam posuere lacus quis dolor. Fusce aliquam vestibulum ipsum. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam egestas wisi a erat. Etiam dictum tincidunt diam. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Integer lacinia. Curabitur bibendum justo non orci. Proin mattis lacinia justo.');
-    doc.write(8, 'Fusce consectetuer risus a nunc. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla pulvinar eleifend sem. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aliquam in lorem sit amet leo accumsan lacinia. Mauris metus. Integer malesuada. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Nullam dapibus fermentum ipsum. Sed convallis magna eu sem. Pellentesque pretium lectus id turpis. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nunc tincidunt ante vitae massa.');
-    doc.write(8, 'Duis condimentum augue id magna semper rutrum. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Aliquam erat volutpat. Phasellus et lorem id felis nonummy placerat. Integer malesuada. Morbi scelerisque luctus velit. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Etiam dictum tincidunt diam. Mauris dictum facilisis augue. Praesent id justo in neque elementum ultrices.');
-    doc.write(8, 'Aenean id metus id velit ullamcorper pulvinar. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Vivamus porttitor turpis ac leo. Suspendisse nisl. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Vivamus porttitor turpis ac leo. Integer malesuada. Fusce wisi. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Integer lacinia. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Fusce wisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Integer malesuada. Nulla pulvinar eleifend sem.');
-    doc.addPage();
     doc.text(20, 30, 'You can also override page fonts with text method', 'Times-Roman');
     doc.text(20, 40, 'Monaco -This is some normal sized text underneath.', 'Monaco');
     doc.text(20, 50, 'Times-Roman - This is some normal sized text underneath.', 'Times-Roman');
     doc.text(20, 60, 'Helvetica - This is some normal sized text underneath.', 'Helvetica');
     doc.text(20, 70, 'Courier - This is some normal sized text.', 'Courier');
-
+    doc.addFont('courcs', '', cour);
+    doc.setFont('courcs');
+    doc.text(20, 80, 'Text with some foreign characters: ìšèøžýáíù');        
     doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');
     doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
     doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
     doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
 
     doc.drawRect(140, 140, 10, 10, 'solid');
+    doc.addPage();    
+    doc.setFontSize(18);
+    doc.setFont('Verdana');
+    doc.write(8, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam posuere lacus quis dolor. Fusce aliquam vestibulum ipsum. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam egestas wisi a erat. Etiam dictum tincidunt diam. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Integer lacinia. Curabitur bibendum justo non orci. Proin mattis lacinia justo.');
+    doc.write(8, 'Fusce consectetuer risus a nunc. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla pulvinar eleifend sem. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aliquam in lorem sit amet leo accumsan lacinia. Mauris metus. Integer malesuada. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Nullam dapibus fermentum ipsum. Sed convallis magna eu sem. Pellentesque pretium lectus id turpis. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nunc tincidunt ante vitae massa.');
     
     var fileName = "testFile"+new Date().getSeconds()+".pdf";
     var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});
-
-  /* inject the pdf into the browser */
-  
-    // inject using an iframe
-    // this seems to work in FF but not Chrome? try testing some more on your own >.<
-    //$('#theFrame').attr('src',pdfAsDataURI);
-
-    // inject using an object tag
-    // doesnt really work but it does something interesting
-    //$('body').append('<object data="'+pdfAsDataURI+'" type="application/pdf"></object>');
-
-    // inject changing document.location
-    // doesn't work in FF, kinda works in Chrome. this method is a bit brutal as the user sees a huge URL
-    // document.location = pdfAsDataURI;
-
-    // create a link
-    // this seems to always work, except clicking the link destroys my FF instantly 
-    $('#pdfLink').html('<a href = "'+pdfAsDataURI+'">'+fileName+'</a> <span class = "helper">right click and save file as pdf</span');
-
-
+    window.open(pdfAsDataURI, 'doc');
+    
 </textarea>
-</form>
-<iframe id = "theFrame"></iframe>
-
-<a href = "http://github.com/marak/pdf.js/">
-<img alt="Fork me on GitHub" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" style="position: absolute; z-index: 10; top: 0pt; right: 0pt; border: 0pt none;">
-</a>
+	</form>
+	<iframe id="theFrame"></iframe>
 </body>
 </html>

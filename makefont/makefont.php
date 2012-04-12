@@ -275,7 +275,37 @@ function MakeUnicodeEncodingTable($enc){
 }
 
 function JSONToFile($file, $json_obj) {
-	SaveToFile($file, json_encode($json_obj));
+	$str = json_encode($json_obj);
+	$str = str_replace('\\/','/',$str);
+	$str = str_replace('\\\\','\\',$str);
+	$str = "var font = $str;";
+	SaveToFile($file, $str);
+}
+
+function strToHex($string) {
+	$hex = array();
+	for ($i=0; $i < strlen($string); $i++)
+	{
+		$char = dechex(ord($string[$i]));
+		$len = strlen($char);
+		for($j=0;$j<4-$len;$j++){
+			$char = "0".$char;
+		}
+		if(strlen($char) != 4){
+			throw new Exception("$string[$i]-$char-$len");
+		}
+		$char = '\\'.$char;
+		$hex[] = $char;
+	}
+	return implode('',$hex);
+}
+
+function strToCode($str){
+	$count = 0;
+	for ($i=0; $i < strlen($str); $i++){
+		$count += ord($str[$i]);
+	}
+	echo $count;	
 }
 
 function SaveToFile($file, $s) {
@@ -289,7 +319,7 @@ function SaveToFile($file, $s) {
 function MakeDefinitionFile($file, $type, $enc, $embed, $map, $info) {
 	$json_obj = array();
 	$json_obj['type'] = $type;
-	$json_obj['decs'] = MakeFontDescriptor($info);
+	$json_obj['desc'] = MakeFontDescriptor($info);
 	$json_obj['name'] = $info['FontName'];
 	$json_obj['up'] = $info['UnderlinePosition'];
 	$json_obj['ut'] = $info['UnderlineThickness'];
@@ -301,11 +331,11 @@ function MakeDefinitionFile($file, $type, $enc, $embed, $map, $info) {
 		$json_obj['diff'] = $diff;
 	if ($embed) {
 		$json_obj['file'] = $info['file'];
+// 		$json_obj['base64'] = $info['base64'];
 		$json_obj['filesize'] = $info['filesize'];
 		if ($type == 'Type1') {
 			$json_obj['size1'] = $info['Size1'];
 			$json_obj['size2'] = $info['Size2'];
-
 		} else {
 			$json_obj['originalsize'] = $info['OriginalSize'];
 		}
@@ -314,7 +344,6 @@ function MakeDefinitionFile($file, $type, $enc, $embed, $map, $info) {
 }
 
 function MakeFont($fontfile, $enc = 'cp1252', $embed = true) {
-	$embed = false; //unsuported
 	// Generate a font definition file
 	if (get_magic_quotes_runtime())
 		@set_magic_quotes_runtime(0);
@@ -342,17 +371,16 @@ function MakeFont($fontfile, $enc = 'cp1252', $embed = true) {
 		if (function_exists('gzcompress')) {
 			$embeded_font = gzcompress($info['Data']);
 			$info['filesize'] = strlen($embeded_font);
-			// 			$embeded_font = base64_encode($embeded_font);
-			$embeded_font = utf8_encode($embeded_font);
-			$info['file'] = $embeded_font;
+//			$info['file'] = strToHex($embeded_font);
+			strToCode($embeded_font);
+			$info['file'] = base64_encode($embeded_font);
 			Message('Font compressed.');
 		} else {
 			Notice('Font file could not be compressed (zlib extension not available)');
 		}
 	}
-
 	MakeDefinitionFile($basename . '.js', $type, $enc, $embed, $map, $info);
-	Message('Font definition file generated: ' . $basename . '.json');
+	Message('Font definition file generated: ' . $basename . '.js');
 }
 
 if (PHP_SAPI == 'cli') {
