@@ -60,15 +60,16 @@ h2 {
 
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('#run').click(function(e) {
-			$("body").append(
-			'<script type="text/javascript">'+
-		    $('#theCode').text()+
-		    '<\/script>'
-			);
-		});
-	});
+	$(document).ready(
+			function() {
+				$('#run').click(
+						function(e) {
+							$("body").append(
+									'<script type="text/javascript">'
+											+ $('#theCode').text()
+											+ '<\/script>');
+						});
+			});
 </script>
 
 </head>
@@ -92,7 +93,9 @@ h2 {
 		<textarea id="theCode" class="box">
   /* create the PDF document */
   
-    var doc = new pdf();
+    var doc = new pdf(function(data){
+      window.open(data, 'doc');
+    });
     /* optional - set properties on the document */
     doc.setProperties({
       title: 'A sample document created by pdf.js',
@@ -114,6 +117,7 @@ h2 {
     doc.drawLine(100, 100, 120, 100, 1.2, 'dotted');
     doc.drawLine(120, 120, 100, 120, 1.4, 'dashed');
     doc.drawLine(120, 120, 120, 100, 1.6, 'solid');
+    doc.image('stekot.jpg', 50, 100);
 
     doc.drawRect(140, 140, 10, 10, 'solid');
     doc.addPage();    
@@ -123,8 +127,8 @@ h2 {
     doc.write(8, 'Fusce consectetuer risus a nunc. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla pulvinar eleifend sem. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aliquam in lorem sit amet leo accumsan lacinia. Mauris metus. Integer malesuada. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Nullam dapibus fermentum ipsum. Sed convallis magna eu sem. Pellentesque pretium lectus id turpis. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nunc tincidunt ante vitae massa.');
     
     var fileName = "testFile"+new Date().getSeconds()+".pdf";
-    var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});
-    window.open(pdfAsDataURI, 'doc');
+    doc.output('datauri', {"fileName":fileName});
+    
     
 </textarea>
 	</form>
