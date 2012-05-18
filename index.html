@@ -53,7 +53,7 @@ h2 {
 </style>
 <script type="text/javascript" src="./lib/pdf.js"></script>
 <!-- font file in Windows-1250 encoding -->
-<script type="text/javascript" src="./cour.js"></script>
+<script type="text/javascript" src="./times.js"></script>
 <!-- jquery not required, just use this this demo page -->
 <script type="text/javascript" src="./vendor/jquery.js"></script>
 
@@ -109,7 +109,7 @@ h2 {
     doc.text(20, 50, 'Times-Roman - This is some normal sized text underneath.', 'Times-Roman');
     doc.text(20, 60, 'Helvetica - This is some normal sized text underneath.', 'Helvetica');
     doc.text(20, 70, 'Courier - This is some normal sized text.', 'Courier');
-    doc.addFont('courcs', '', cour);
+    doc.addFont('courcs', '', font);
     doc.setFont('courcs');
     doc.text(20, 80, 'Text with some foreign characters: ìšèøžýáíù');        
     doc.drawLine(100, 100, 100, 120, 1.0, 'dashed');

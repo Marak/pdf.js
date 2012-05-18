@@ -1,11 +1,4 @@
 <?php
-/******************************************************************************
- * Utility to generate font definition files                                    *
-*                                                                              *
-* Version: 1.2                                                                 *
-* Date:    2011-06-18                                                          *
-* Author:  Olivier PLATHEY                                                     *
-*******************************************************************************/
 
 require('ttfparser.php');
 require('fUTF8.php');
@@ -371,7 +364,6 @@ function MakeFont($fontfile, $enc = 'cp1252', $embed = true) {
 		if (function_exists('gzcompress')) {
 			$embeded_font = gzcompress($info['Data']);
 			$info['filesize'] = strlen($embeded_font);
-//			$info['file'] = strToHex($embeded_font);
 			strToCode($embeded_font);
 			$info['file'] = base64_encode($embeded_font);
 			Message('Font compressed.');
