@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <title>pdf.js - create basic pdf files in the browser</title>
@@ -81,8 +80,8 @@ h2 {
 	<h3>
 		demo - this uses <a
 			href="http://en.wikipedia.org/wiki/Data_URI_scheme" target="_blank">dataURIs</a>
-		and they kinda suck. the <a href="http://github.com/marak/pdf.js">
-			node.js</a> version is better.
+		so IE is not supported. If it throws security error, make sure page is
+		running on the server.
 	</h3>
 	<br />
 	<form>
@@ -93,6 +92,7 @@ h2 {
   /* create the PDF document */
   
     var doc = new pdf(function(data){
+      $('#run').remove();
       window.open(data, 'doc');
     });
     /* optional - set properties on the document */
@@ -119,12 +119,13 @@ h2 {
     doc.image('stekot.jpg', 50, 100);
 
     doc.drawRect(140, 140, 10, 10, 'solid');
-    doc.addPage();    
+    doc.addPage(); 
+    doc.setFont('courcs');
     doc.setFontSize(18);
-    doc.setFont('Verdana');
     doc.write(8, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam posuere lacus quis dolor. Fusce aliquam vestibulum ipsum. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam egestas wisi a erat. Etiam dictum tincidunt diam. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Integer lacinia. Curabitur bibendum justo non orci. Proin mattis lacinia justo.');
+    doc.setFontSize(24); 
     doc.write(8, 'Fusce consectetuer risus a nunc. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla pulvinar eleifend sem. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aliquam in lorem sit amet leo accumsan lacinia. Mauris metus. Integer malesuada. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Nullam dapibus fermentum ipsum. Sed convallis magna eu sem. Pellentesque pretium lectus id turpis. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nunc tincidunt ante vitae massa.');
-    
+   
     var fileName = "testFile"+new Date().getSeconds()+".pdf";
     doc.output('datauri', {"fileName":fileName});
     
