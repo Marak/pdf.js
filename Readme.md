@@ -61,7 +61,7 @@
 
       </script>
 ### node.js - 
-      var sys = require('sys');
+      var util = require('util');
       var fs = require('fs');
       var pdf = require('./lib/pdf').pdf;
 
@@ -98,7 +98,7 @@
       var fileName = "testFile"+new Date().getSeconds()+".pdf";
 
       fs.writeFile(fileName, doc.output(), function(err, data){
-        sys.puts(fileName +' was created! great success!');
+        util.puts(fileName +' was created! great success!');
       });
     
 ## Authors
